@@ -1,6 +1,4 @@
-def nearestNeighborInterpolation(neigbor, pair):
-    x, y = pair
-    # print(x, y)
+def nearestNeighborInterpolation(neigbor, x, y):
     int_x = toInt(x)
     int_y = toInt(y)
     return neigbor[int_y][int_x]

@@ -9,8 +9,10 @@ def generateExpectedGrid():
         for x in range(0,256,16):
             xs = [x,x+15,x,x+15]
             ys = [y,y,y+15,y+15]
+            # print(xs, ys)
             segment = Segment(xs,ys)
             segments.append(segment)
+    # print(len(segments))
     return segments
 
 def generateDistGrid():

@@ -1,10 +1,5 @@
-def gaussianElimination(a_origin,b_origin):
-    a = []
-    for l in a_origin:
-        a.insert(0,l.copy())
-    b = []
-    for l in b_origin:
-        b.insert(0, l)
+def gaussianElimination(a_origin, b):
+    a = a_origin.copy()
 
     x = [0,0,0,0]
     for k in range(3):

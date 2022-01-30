@@ -21,3 +21,6 @@ def findUniqueValue(img):
             if x != 255 and x not in unique:
                 unique.append(x)
     return unique
+
+def hist(flatImg):
+    return [flatImg.count(i) for i in range(256)]
