@@ -7,12 +7,11 @@ def generateExpectedGrid():
     segments = []
     for y in range(0,256,16):
         for x in range(0,256,16):
-            xs = [x,x+15,x,x+15]
-            ys = [y,y,y+15,y+15]
-            # print(xs, ys)
-            segment = Segment(xs,ys)
-            segments.append(segment)
-    # print(len(segments))
+            xp = x + 16 if x + 16 < 256 else 255
+            yp = y + 16 if y + 16 < 256 else 255
+            xs = [x,xp,x,xp]
+            ys = [y,y,yp,yp]
+            segments.append(Segment(xs,ys))
     return segments
 
 def generateDistGrid():
