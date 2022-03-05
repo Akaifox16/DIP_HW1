@@ -18,9 +18,9 @@ def fillSegment(distSegment, expectSegment, distimage, image):
     dys = distSegment.ys
     # print(dxs, dys)
     # print(exs, eys)
-    x_range = range(int(exs[0]), int(exs[-1])+1)
+    x_range = range(int(exs[0]), int(exs[-1]))
     # print(x_init, x_end)
-    y_range = range(int(eys[0]), int(eys[-1])+1)
+    y_range = range(int(eys[0]), int(eys[-1]))
     # print(y_init, y_end)
     abcd, efgh = findLinearFunction(exs, eys, dxs, dys)
     # print(abcd)
@@ -31,11 +31,11 @@ def fillSegment(distSegment, expectSegment, distimage, image):
             x_prime = find_coordinate(efgh, x, y)
             # print('x: {} y: {}'.format(x, y))
             # print(x_prime, y_prime)
-            if x_prime % 1 != 0 or y_prime % 1 != 0:
-                oo, oi, io ,ii = getNeighbor(int(x_prime), int(y_prime), distimage)
-                image[y][x] = nearestNeighborInterpolation([[oo, oi],[io, ii]], x_prime, y_prime)
-            else:
-                image[y][x] = distimage[int(y_prime)][int(x_prime)]
+            # if x_prime % 1 != 0 or y_prime % 1 != 0:
+            oo, oi, io ,ii = getNeighbor(int(x_prime), int(y_prime), distimage)
+            image[y][x] = nearestNeighborInterpolation([[oo, oi],[io, ii]], x_prime, y_prime)
+            # else:
+            #     image[y][x] = distimage[int(y_prime)][int(x_prime)]
 
 def getNeighbor(i, j, distimage):
     oo = distimage[i][j]
