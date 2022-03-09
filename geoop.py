@@ -1,4 +1,3 @@
-from gaussian import gaussianElimination
 from segment import generateDistGrid, generateExpectedGrid
 from interpolation import nearestNeighborInterpolation
 from numpy.linalg import solve
@@ -35,9 +34,9 @@ def getNeighbor(i, j, distimage):
     
 def findLinearFunction( expected_xs, expected_ys,
                         dist_xs, dist_ys ):
-    origin = [[ expected_xs[i], expected_ys[i], expected_xs[i]*expected_ys[i], 1] for i in range(4)]
-    xs = [[dist_xs[i]] for i in range(4)]
-    ys = [[dist_ys[i]] for i in range(4)]
+    origin = [[ expected_xs[i], expected_ys[i], expected_xs[i]*expected_ys[i], 1] for i in range(-1,-5,-1)]
+    xs = [dist_xs[i] for i in range(-1, -5, -1)]
+    ys = [dist_ys[i] for i in range(-1, -5, -1)]
 
     a, b, c, d = solve(origin, xs)
     e, f, g, h = solve(origin, ys)
